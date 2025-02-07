@@ -8,7 +8,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 
@@ -41,7 +43,7 @@ public class EmployeeController {
      * @return Requested Employee if exists
      */
     @GetMapping
-    public Employee getEmployeeByUuid(UUID uuid) {
+    public Employee getEmployeeByUuid(@RequestParam UUID uuid) {
         throw new ResponseStatusException(HttpStatus.NOT_IMPLEMENTED);
     }
 
@@ -51,7 +53,7 @@ public class EmployeeController {
      * @return Newly created Employee
      */
     @PostMapping
-    public Employee createEmployee(Object requestBody) {
+    public Employee createEmployee(@RequestBody Employee employee) {
         throw new ResponseStatusException(HttpStatus.NOT_IMPLEMENTED);
     }
 }
