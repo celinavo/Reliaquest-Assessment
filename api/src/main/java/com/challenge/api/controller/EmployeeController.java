@@ -1,6 +1,6 @@
 package com.challenge.api.controller;
 
-import com.challenge.api.model.Employee;
+import com.challenge.api.model.RQEmployee;
 import com.challenge.service.EmployeeService;
 import java.util.List;
 import java.util.UUID;
@@ -33,8 +33,8 @@ public class EmployeeController {
      * @return One or more Employees.
      */
     @GetMapping
-    public List<Employee> getAllEmployees() {
-        throw new ResponseStatusException(HttpStatus.NOT_IMPLEMENTED);
+    public List<RQEmployee> getAllEmployees() {
+        return employeeService.getALLEmployees();
     }
 
     /**
@@ -43,8 +43,8 @@ public class EmployeeController {
      * @return Requested Employee if exists
      */
     @GetMapping
-    public Employee getEmployeeByUuid(@RequestParam UUID uuid) {
-        throw new ResponseStatusException(HttpStatus.NOT_IMPLEMENTED);
+    public RQEmployee getEmployeeByUuid(@RequestParam UUID uuid) {
+        return employeeService.getEmployeeByUuid(uuid);
     }
 
     /**
@@ -53,7 +53,11 @@ public class EmployeeController {
      * @return Newly created Employee
      */
     @PostMapping
-    public Employee createEmployee(@RequestBody Employee employee) {
-        throw new ResponseStatusException(HttpStatus.NOT_IMPLEMENTED);
+    public RQEmployee createEmployee(@RequestBody RQEmployee employee) {
+        try {
+            return employeeService.createEmployee(employee);
+        } catch (Exception e) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Cannot create employee.");
+        }
     }
 }
