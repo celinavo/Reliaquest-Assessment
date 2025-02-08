@@ -18,7 +18,7 @@ import org.springframework.web.server.ResponseStatusException;
  * Fill in the missing aspects of this Spring Web REST Controller. Don't forget to add a Service layer.
  */
 @RestController
-@RequestMapping("/api/v1/employee")
+@RequestMapping("/employee")
 public class EmployeeController {
 
     @Autowired
@@ -28,7 +28,7 @@ public class EmployeeController {
      * @implNote Need not be concerned with an actual persistence layer. Generate mock Employee models as necessary.
      * @return One or more Employees.
      */
-    @GetMapping("/api/v1/employee")
+    @GetMapping("/getEmployees")
     public List<RQEmployee> getAllEmployees() {
         return employeeService.getAllEmployees();
     }
@@ -38,7 +38,7 @@ public class EmployeeController {
      * @param uuid Employee UUID
      * @return Requested Employee if exists
      */
-    @GetMapping("/api/v1/employee/{uuid}")
+    @GetMapping("searchEmployee")
     public RQEmployee getEmployeeByUuid(@RequestParam UUID uuid) {
         return employeeService.getEmployeeByUuid(uuid);
     }
@@ -48,7 +48,7 @@ public class EmployeeController {
      * @param requestBody hint!
      * @return Newly created Employee
      */
-    @PostMapping
+    @PostMapping("/createEmployee")
     public RQEmployee createEmployee(@RequestBody RQEmployee employee) {
         try {
             return employeeService.createEmployee(employee);
