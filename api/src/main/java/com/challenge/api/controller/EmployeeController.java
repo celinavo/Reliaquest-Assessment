@@ -30,7 +30,7 @@ public class EmployeeController {
      */
     @GetMapping("/api/v1/employee")
     public List<RQEmployee> getAllEmployees() {
-        return employeeService.getALLEmployees();
+        return employeeService.getAllEmployees();
     }
 
     /**

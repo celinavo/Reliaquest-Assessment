@@ -1,6 +1,9 @@
 package com.challenge.api.service;
 
 import com.challenge.api.model.RQEmployee;
+import java.time.Instant;
+import java.time.LocalDate;
+import java.time.ZoneOffset;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.NoSuchElementException;
@@ -12,18 +15,45 @@ public class EmployeeService {
 
     private List<RQEmployee> RQEmployeeList;
 
-    // Constructor
+    // Constructor with mock employee model
     public EmployeeService() {
         RQEmployeeList = new ArrayList<>();
 
-        RQEmployee RQEmployee1 = new RQEmployee(null, null, null, null, null, null, null, null, null, null);
-        RQEmployee RQEmployee2 = new RQEmployee(null, null, null, null, null, null, null, null, null, null);
+        UUID uuid1 = UUID.fromString("00000000-0000-0000-0000-000000000001");
+        UUID uuid2 = UUID.fromString("00000000-0000-0000-0000-000000000002");
+
+        LocalDate today = LocalDate.now();
+        Instant hireDate = today.atStartOfDay().toInstant(ZoneOffset.UTC);
+        Instant terminationDate = Instant.parse("2025-12-31T00:00:00Z");
+
+        RQEmployee RQEmployee1 = new RQEmployee(
+                uuid1,
+                "Celina",
+                "Vo",
+                "Celina Vo",
+                80000,
+                22,
+                "Associate Software Engineer",
+                "celinavo@usf.edu",
+                hireDate,
+                null);
+        RQEmployee RQEmployee2 = new RQEmployee(
+                uuid2,
+                "John",
+                "Doe",
+                "John Doe",
+                100000,
+                27,
+                "Senior Software Engineer",
+                "johndoe@mail.com",
+                hireDate,
+                terminationDate);
 
         RQEmployeeList.add(RQEmployee1);
         RQEmployeeList.add(RQEmployee2);
     }
 
-    public List<RQEmployee> getALLEmployees() {
+    public List<RQEmployee> getAllEmployees() {
         return RQEmployeeList;
     }
 
