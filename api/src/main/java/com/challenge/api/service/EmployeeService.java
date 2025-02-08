@@ -1,4 +1,4 @@
-package com.challenge.service;
+package com.challenge.api.service;
 
 import com.challenge.api.model.RQEmployee;
 import java.time.Instant;
@@ -15,8 +15,8 @@ public class EmployeeService {
 
     // Constructor
     public EmployeeService() {
-
         RQEmployeeList = new ArrayList<>();
+
         RQEmployee RQEmployee1 = new RQEmployee(null, null, null, null, null, null, null, null, null, null);
         RQEmployee RQEmployee2 = new RQEmployee(null, null, null, null, null, null, null, null, null, null);
 

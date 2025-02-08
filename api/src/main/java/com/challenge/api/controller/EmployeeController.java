@@ -1,7 +1,7 @@
 package com.challenge.api.controller;
 
 import com.challenge.api.model.RQEmployee;
-import com.challenge.service.EmployeeService;
+import com.challenge.api.service.EmployeeService;
 import java.util.List;
 import java.util.UUID;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,8 +24,8 @@ public class EmployeeController {
     private EmployeeService employeeService;
 
     @Autowired
-    public EmployeeController(EmployeeService employeeSerivce) {
-        this.employeeService = employeeSerivce;
+    public EmployeeController(EmployeeService employeeService) {
+        this.employeeService = employeeService;
     }
 
     /**
