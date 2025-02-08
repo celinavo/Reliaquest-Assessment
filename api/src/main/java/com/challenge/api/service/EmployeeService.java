@@ -1,7 +1,6 @@
 package com.challenge.api.service;
 
 import com.challenge.api.model.RQEmployee;
-import java.time.Instant;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.NoSuchElementException;
@@ -38,16 +37,16 @@ public class EmployeeService {
     }
 
     public RQEmployee createEmployee(RQEmployee employee) {
-        UUID uuid;
-        String firstName;
-        String lastName;
-        String fullName;
-        Integer salary;
-        Integer age;
-        String jobTitle;
-        String email;
-        Instant contractHireDate;
-        Instant contractTerminationDate;
+        // UUID uuid;
+        // String firstName;
+        // String lastName;
+        // String fullName;
+        // Integer salary;
+        // Integer age;
+        // String jobTitle;
+        // String email;
+        // Instant contractHireDate;
+        // Instant contractTerminationDate;
 
         if (employee.getUuid() == null) {
             employee.setUuid(UUID.randomUUID());

@@ -21,18 +21,14 @@ import org.springframework.web.server.ResponseStatusException;
 @RequestMapping("/api/v1/employee")
 public class EmployeeController {
 
-    private EmployeeService employeeService;
-
     @Autowired
-    public EmployeeController(EmployeeService employeeService) {
-        this.employeeService = employeeService;
-    }
+    private EmployeeService employeeService;
 
     /**
      * @implNote Need not be concerned with an actual persistence layer. Generate mock Employee models as necessary.
      * @return One or more Employees.
      */
-    @GetMapping
+    @GetMapping("/api/v1/employee")
     public List<RQEmployee> getAllEmployees() {
         return employeeService.getALLEmployees();
     }
@@ -42,7 +38,7 @@ public class EmployeeController {
      * @param uuid Employee UUID
      * @return Requested Employee if exists
      */
-    @GetMapping
+    @GetMapping("/api/v1/employee/{uuid}")
     public RQEmployee getEmployeeByUuid(@RequestParam UUID uuid) {
         return employeeService.getEmployeeByUuid(uuid);
     }
