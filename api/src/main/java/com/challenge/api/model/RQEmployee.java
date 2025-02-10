@@ -1,6 +1,8 @@
 package com.challenge.api.model;
 
 import java.time.Instant;
+import java.time.LocalDate;
+import java.time.ZoneOffset;
 import java.util.UUID;
 
 public class RQEmployee implements Employee {
@@ -123,7 +125,19 @@ public class RQEmployee implements Employee {
      * @return null, if Employee has not been terminated.
      */
     public Instant getContractTerminationDate() {
-        return contractTerminationDate;
+        LocalDate today = LocalDate.now();
+        Instant currentInstant = today.atStartOfDay().toInstant(ZoneOffset.UTC);
+
+        /*
+         * The Contract Termination Date can be null.
+         * - If the employee is still employed and the termination date hasn't passed, the result will be null.
+         * - If the employee is no longer employed and the termination date has passed, the result will be the termination date.
+         */
+        if (this.contractTerminationDate == null || this.contractTerminationDate.isAfter(currentInstant)) {
+            return null;
+        } else {
+            return contractTerminationDate;
+        }
     }
 
     public void setContractTerminationDate(Instant date) {

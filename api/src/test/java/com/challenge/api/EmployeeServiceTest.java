@@ -24,7 +24,7 @@ public class EmployeeServiceTest {
     @Test
     void testGetAllEmployees() {
 
-        assertEquals(3, service.getAllEmployees().size());
+        assertEquals(4, service.getAllEmployees().size());
     }
 
     @Test
@@ -45,7 +45,7 @@ public class EmployeeServiceTest {
         Instant hireDate = today.atStartOfDay().toInstant(ZoneOffset.UTC);
 
         RQEmployee employee = new RQEmployee(
-                uuid, "Jane", "Doe", "Jane Doe", 90000, 26, "Software Engineer", "janedoe@mail.com", hireDate, null);
+                uuid, "Pat", "Doe", "Pat Doe", 90000, 26, "Software Engineer", "patdoe@mail.com", hireDate, null);
 
         assertEquals(employee, service.createEmployee(employee));
     }

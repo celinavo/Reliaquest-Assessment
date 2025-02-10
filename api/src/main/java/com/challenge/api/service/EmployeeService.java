@@ -21,10 +21,12 @@ public class EmployeeService {
 
         UUID uuid1 = UUID.fromString("00000000-0000-0000-0000-000000000001");
         UUID uuid2 = UUID.fromString("00000000-0000-0000-0000-000000000002");
+        UUID uuid3 = UUID.fromString("00000000-0000-0000-0000-000000000003");
 
         LocalDate today = LocalDate.now();
         Instant hireDate = today.atStartOfDay().toInstant(ZoneOffset.UTC);
-        Instant terminationDate = Instant.parse("2025-12-31T00:00:00Z");
+        Instant terminationDateNotTerminated = Instant.parse("2025-12-31T00:00:00Z");
+        Instant terminationDateTerminated = Instant.parse("2023-12-31T00:00:00Z");
 
         RQEmployee RQEmployee1 = new RQEmployee(
                 uuid1,
@@ -47,10 +49,22 @@ public class EmployeeService {
                 "Senior Software Engineer",
                 "johndoe@mail.com",
                 hireDate,
-                terminationDate);
+                terminationDateNotTerminated);
+        RQEmployee RQEmployee3 = new RQEmployee(
+                uuid3,
+                "Jane",
+                "Doe",
+                "Jane Doe",
+                100000,
+                27,
+                "Senior Software Engineer",
+                "janedoe@mail.com",
+                hireDate,
+                terminationDateTerminated);
 
         RQEmployeeList.add(RQEmployee1);
         RQEmployeeList.add(RQEmployee2);
+        RQEmployeeList.add(RQEmployee3);
     }
 
     public List<RQEmployee> getAllEmployees() {
