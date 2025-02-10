@@ -67,17 +67,6 @@ public class EmployeeService {
     }
 
     public RQEmployee createEmployee(RQEmployee employee) {
-        // UUID uuid;
-        // String firstName;
-        // String lastName;
-        // String fullName;
-        // Integer salary;
-        // Integer age;
-        // String jobTitle;
-        // String email;
-        // Instant contractHireDate;
-        // Instant contractTerminationDate;
-
         if (employee.getUuid() == null) {
             employee.setUuid(UUID.randomUUID());
         }

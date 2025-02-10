@@ -40,7 +40,11 @@ public class EmployeeController {
      */
     @GetMapping("searchEmployee")
     public RQEmployee getEmployeeByUuid(@RequestParam UUID uuid) {
-        return employeeService.getEmployeeByUuid(uuid);
+        try {
+            return employeeService.getEmployeeByUuid(uuid);
+        } catch (Exception e) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Cannot find employee.");
+        }
     }
 
     /**

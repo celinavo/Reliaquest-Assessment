@@ -37,7 +37,7 @@ public class RQEmployee implements Employee {
         this.jobTitle = jobTitle;
         this.email = email;
         this.contractHireDate = contractHireDate;
-        this.contractTerminationDate = null;
+        this.contractTerminationDate = contractTerminationDate;
     }
 
     public UUID getUuid() {
@@ -123,11 +123,7 @@ public class RQEmployee implements Employee {
      * @return null, if Employee has not been terminated.
      */
     public Instant getContractTerminationDate() {
-        if (contractTerminationDate == null) {
-            return null;
-        } else {
-            return contractTerminationDate;
-        }
+        return contractTerminationDate;
     }
 
     public void setContractTerminationDate(Instant date) {
